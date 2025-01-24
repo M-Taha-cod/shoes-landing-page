@@ -1,0 +1,1405 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+* { 
+margin: 0%;
+padding: 0%;
+font-family: 'poppins', 'sans-serif' ;
+box-sizing: border-box;
+}
+
+body{
+height: 100%;
+width: 100%;
+overflow-x: hidden;
+}
+
+.outer{
+    height: 100vh;
+    width: 100%;
+    /* scroll-behavior: none; */
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 55px;
+    width: 100%;
+    padding: 10px;
+}
+
+.logo-menu{
+    display: flex;
+    gap:10px;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 60px;
+    background-color: gold;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.menu{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 60px;
+    background-color: gold;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.option1, .option2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: bold;
+    color: rgb(75, 75, 75);
+}
+
+.logo-name{
+    font-size: 25px;
+    font-family: "Anton", serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.search-profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.search-profile div{
+    height: 35px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.search-profile div:nth-child(1){
+    background-color: gold;
+    font-size: 13px;
+    color: rgb(51, 51, 51);
+}
+
+.search-profile div:nth-child(2){
+    background-color: black;
+    font-size: 13px;
+    color: white;
+}
+
+.backname-div{
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.backname-div p{
+    position: absolute;
+    font-size: 240px;
+    font-family: "Anton", serif;
+    font-weight: 900;
+    font-style: normal;
+    top: -30px;
+    text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.imgpart{
+    position: relative;
+    width: 100%;
+    z-index: 2;
+}
+
+.imgpart img{
+    display: none;
+    position: absolute;
+    height: 800px;
+    top: -170px;
+    transform: rotate(-40deg);
+    left: 30px;
+    animation: move 10s linear infinite;
+    transition: transform 0.5s ease-in-out;
+}
+
+.imgpart img.active {
+    display: block;;
+}
+
+@keyframes move {
+    0% {
+      transform: rotate(-35deg) translateX(0) translateY(0);
+    }
+    50% {
+      transform: rotate(-45deg) translateX(20px) translateY(0px);
+    }
+    100% {
+      transform: rotate(-35deg) translateX(0) translateY(0);
+    }
+}
+
+  
+  /* Slide-in animation for the image */
+  @keyframes slideLeft {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  .imgpart img.active.slide-in {
+    animation: slideLeft 1s ease-in-out, move 10s linear infinite 1s; /* Slide-in first, then continuous movement */
+  }
+
+.info-part{
+    position: absolute;
+    height: 50vh;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    right: 20px;
+    bottom: 30px;
+    gap: 20px;
+    padding: 20px;
+}
+
+.info-part div:nth-child(1){
+    right: 10px;
+    bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-part div:nth-child(1) h3{
+    font-size: 30px;
+    font-family: "Anton", serif;
+    font-weight: 900;
+    font-style:italic;
+}
+
+.info-part div:nth-child(2) img{
+    height: 150px;
+    border-radius: 10px;
+}
+
+.btnspart{
+    position: absolute;
+    width: 100%;
+    left: 520px;
+    bottom: 50px;
+    z-index: 3;
+}
+
+.btnpart, .sizepart{
+    height: 100%;
+    width: 380px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    background-color: rgba(102, 101, 101, 0.301);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.btnpart p, .sizepart p{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.btnpart div button, .sizepart div button{
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: rgb(230, 230, 230);
+}
+
+.sizepart div h3{
+    padding: 5px 20px;
+    background-color: black;
+    color: white;
+    width: 170px;
+    margin-top: 5px;
+    border-radius: 5px;
+    font-size: 17px;
+    text-align: center;
+}
+
+.btnpart button.active{
+    background-color: gold;
+}
+
+.sizepart button.active{
+    background-color: gold;
+}
+
+@media (max-width: 2560px) and (min-width:1921px) {
+    .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100px;
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 45px;
+        width: 70px;
+        background-color: gold;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 25px;
+    }
+    
+    .option1, .option2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        cursor: pointer;
+        font-size: 25px;
+        font-weight: bold;
+        color: rgb(75, 75, 75);
+    }
+    
+    .logo-name{
+        font-size: 35px;
+        font-family: "Anton", serif;
+        font-weight: 900;
+        font-style: normal;
+    }
+    
+    .search-profile{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .search-profile div{
+        height: 45px;
+        width: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+    
+    .search-profile div:nth-child(1){
+        background-color: gold;
+        font-size: 20px;
+        color: rgb(51, 51, 51);
+    }
+    
+    .search-profile div:nth-child(2){
+        background-color: black;
+        font-size: 20px;
+        color: white;
+    }
+    
+    .backname-div{
+        position: relative;
+        z-index: 1;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .backname-div p{
+        position: absolute;
+        font-size: 540px;
+        font-family: "Anton", serif;
+        font-weight: 900;
+        font-style: normal;
+        top: -30px;
+        text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .imgpart{
+        position: relative;
+        width: 100%;
+        z-index: 2;
+    }
+    
+    .imgpart img{
+        display: none;
+        position: absolute;
+        height: 1700px;
+        top: -170px;
+        transform: rotate(-40deg);
+        left: 30px;
+        animation: move 10s linear infinite;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .info-part{
+        position: absolute;
+        height: 50vh;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        right: 20px;
+        bottom: 30px;
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    .info-part div:nth-child(1){
+        right: 10px;
+        bottom: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .info-part div:nth-child(1) h3{
+        font-size: 90px;
+        font-family: "Anton", serif;
+        font-weight: 900;
+        font-style:italic;
+    }
+
+    .infopartp{
+        font-size: 30px;
+    }
+    
+    .info-part div:nth-child(2) img{
+        height: 350px;
+        border-radius: 10px;
+    }
+    
+    .btnspart{
+        position: absolute;
+        width: 100%;
+        left: 40%;
+        bottom: 10%;
+        z-index: 3;
+    }
+    
+    .btnpart, .sizepart{
+        height: 100%;
+        width: 680px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        background-color: rgba(102, 101, 101, 0.301);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .btnpart p, .sizepart p{
+        font-size: 38px;
+        font-weight: bold;
+    }
+    
+    .btnpart div button, .sizepart div button{
+        padding: 10px 15px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-weight: bold;
+        background-color: rgb(230, 230, 230);
+        font-size: 25px;
+    }
+    
+    .sizepart div h3{
+        padding: 5px 20px;
+        background-color: black;
+        color: white;
+        width: 230px;
+        margin-top: 5px;
+        border-radius: 5px;
+        font-size: 23px;
+        text-align: center;
+    }
+    
+    .btnpart button.active{
+        background-color: gold;
+    }
+    
+    .sizepart button.active{
+        background-color: gold;
+    }
+    
+}
+
+@media (max-width: 1920px) and (min-width:1601px) {
+    .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100px;
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 45px;
+        width: 70px;
+        background-color: gold;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 25px;
+    }
+    
+    .option1, .option2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        cursor: pointer;
+        font-size: 25px;
+        font-weight: bold;
+        color: rgb(75, 75, 75);
+    }
+    
+    .logo-name{
+        font-size: 35px;
+        font-family: "Anton", serif;
+        font-weight: 900;
+        font-style: normal;
+    }
+    
+    .search-profile{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .search-profile div{
+        height: 45px;
+        width: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+    
+    .search-profile div:nth-child(1){
+        background-color: gold;
+        font-size: 20px;
+        color: rgb(51, 51, 51);
+    }
+    
+    .search-profile div:nth-child(2){
+        background-color: black;
+        font-size: 20px;
+        color: white;
+    }
+    
+    .backname-div{
+        position: relative;
+        z-index: 1;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .backname-div p{
+        position: absolute;
+        font-size: 400px;
+        font-family: "Anton", serif;
+        font-weight: 900;
+        font-style: normal;
+        top: -30px;
+        text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .imgpart{
+        position: relative;
+        width: 100%;
+        z-index: 2;
+    }
+    
+    .imgpart img{
+        display: none;
+        position: absolute;
+        height: 1300px;
+        top: -170px;
+        transform: rotate(-40deg);
+        left: 30px;
+        animation: move 10s linear infinite;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .info-part{
+        position: absolute;
+        height: 50vh;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        right: 20px;
+        bottom: 30px;
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    .info-part div:nth-child(1){
+        right: 10px;
+        bottom: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .info-part div:nth-child(1) h3{
+        font-size: 70px;
+        font-family: "Anton", serif;
+        font-weight: 900;
+        font-style:italic;
+    }
+
+    .infopartp{
+        font-size: 25px;
+    }
+    
+    .info-part div:nth-child(2) img{
+        height: 250px;
+        border-radius: 10px;
+    }
+    
+    .btnspart{
+        position: absolute;
+        width: 100%;
+        left: 40%;
+        bottom: 10%;
+        z-index: 3;
+    }
+    
+    .btnpart, .sizepart{
+        height: 100%;
+        width: 540px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        background-color: rgba(102, 101, 101, 0.301);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .btnpart p, .sizepart p{
+        font-size: 25px;
+        font-weight: bold;
+    }
+    
+    .btnpart div button, .sizepart div button{
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-weight: bold;
+        background-color: rgb(230, 230, 230);
+        font-size: 25px;
+    }
+    
+    .sizepart div h3{
+        padding: 5px 20px;
+        background-color: black;
+        color: white;
+        width: 230px;
+        margin-top: 5px;
+        border-radius: 5px;
+        font-size: 23px;
+        text-align: center;
+    }
+    
+    .btnpart button.active{
+        background-color: gold;
+    }
+    
+    .sizepart button.active{
+        background-color: gold;
+    }
+    
+}
+
+@media (max-width: 1600px) and (min-width:1530px) {
+    .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 55px;
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 35px;
+        width: 60px;
+        background-color: gold;
+        border-radius: 20px;
+        font-weight: bold;
+    }
+    
+    .option1, .option2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        cursor: pointer;
+        font-size: 17px;
+        font-weight: bold;
+        color: rgb(75, 75, 75);
+    }
+    
+    .logo-name{
+        font-size: 25px;
+        font-family: "Anton", serif;
+        font-weight: 900;
+        font-style: normal;
+    }
+    
+    .search-profile{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .search-profile div{
+        height: 35px;
+        width: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+    
+    .search-profile div:nth-child(1){
+        background-color: gold;
+        font-size: 13px;
+        color: rgb(51, 51, 51);
+    }
+    
+    .search-profile div:nth-child(2){
+        background-color: black;
+        font-size: 13px;
+        color: white;
+    }
+    
+    .backname-div{
+        position: relative;
+        z-index: 1;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .backname-div p{
+        position: absolute;
+        font-size: 340px;
+        font-family: "Anton", serif;
+        font-weight: 900;
+        font-style: normal;
+        top: -30px;
+        text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .imgpart{
+        position: relative;
+        width: 100%;
+        z-index: 2;
+    }
+    
+    .imgpart img{
+        display: none;
+        position: absolute;
+        height: 1100px;
+        top: -170px;
+        transform: rotate(-40deg);
+        left: 30px;
+        animation: move 10s linear infinite;
+        transition: transform 0.5s ease-in-out;
+    }
+    
+    .imgpart img.active {
+        display: block;;
+    }
+    
+    .info-part{
+        position: absolute;
+        height: 50vh;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        right: 20px;
+        bottom: 30px;
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    .info-part div:nth-child(1){
+        right: 10px;
+        bottom: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .info-part div:nth-child(1) h3{
+        font-size: 50px;
+        font-family: "Anton", serif;
+        font-weight: 900;
+        font-style:italic;
+    }
+
+    .infopartp{
+        font-size: 20px;
+    }
+    
+    .info-part div:nth-child(2) img{
+        height: 250px;
+        border-radius: 10px;
+    }
+    
+    .btnspart{
+        position: absolute;
+        width: 100%;
+        left: 520px;
+        bottom: 50px;
+        z-index: 3;
+    }
+    
+    .btnpart, .sizepart{
+        height: 100%;
+        width: 480px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        background-color: rgba(102, 101, 101, 0.301);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .btnpart p, .sizepart p{
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    .btnpart div button, .sizepart div button{
+        padding: 10px 15px;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-weight: bold;
+        background-color: rgb(230, 230, 230);
+    }
+    
+    .sizepart div h3{
+        padding: 5px 20px;
+        background-color: black;
+        color: white;
+        width: 170px;
+        margin-top: 5px;
+        border-radius: 5px;
+        font-size: 17px;
+        text-align: center;
+    }
+    
+    .btnpart button.active{
+        background-color: gold;
+    }
+    
+    .sizepart button.active{
+        background-color: gold;
+    }
+}
+
+@media (max-width: 1000px) and (min-width:700px) {
+
+    .outer{
+        height: 100%;
+    }
+    
+    .backname-div{
+        position: relative;
+        z-index: 1;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .backname-div p{
+        position: absolute;
+        font-size: 155px;
+        font-family: "Anton", serif;
+        font-weight: 900;
+        font-style: normal;
+        top: 5vh;
+        text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .imgpart{
+        position: relative;
+        width: 100%;
+        z-index: 2;
+    }
+    
+    .imgpart img{
+        display: none;
+        position: absolute;
+        height: 700px;
+        top: -70px;
+        transform: rotate(-40deg);
+        left: 30px;
+        animation: move 10s linear infinite;
+        transition: transform 0.5s ease-in-out;
+    }
+    
+    .info-part{
+        position: absolute;
+        height: 50vh;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        right: 10px;
+        bottom: 10px;
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    .info-part div:nth-child(1){
+        right: 10px;
+        bottom: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .info-part div:nth-child(1) h3{
+        font-size: 40px;
+        font-family: "Anton", serif;
+        font-weight: 900;
+        font-style:italic;
+    }
+
+    .infopartp{
+        font-size: 20px;
+    }
+    
+    .info-part div:nth-child(2) img{
+        height: 200px;
+        border-radius: 10px;
+    }
+    
+    .btnspart{
+        position: absolute;
+        width: 100%;
+        left: 10px;
+        bottom: 15vh;
+        z-index: 3;
+    }
+    
+    .btnpart, .sizepart{
+        height: 100%;
+        width: 380px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        background-color: rgba(102, 101, 101, 0.301);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .btnpart p, .sizepart p{
+        font-size: 18px;
+        font-weight: bold;
+    }
+    
+    .btnpart div button, .sizepart div button{
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-weight: bold;
+        background-color: rgb(230, 230, 230);
+    }
+    
+    .sizepart div h3{
+        padding: 5px 20px;
+        background-color: black;
+        color: white;
+        width: 170px;
+        margin-top: 5px;
+        border-radius: 5px;
+        font-size: 17px;
+        text-align: center;
+    }
+    
+    .btnpart button.active{
+        background-color: gold;
+    }
+    
+    .sizepart button.active{
+        background-color: gold;
+    }
+}
+
+@media (max-width: 699px) and (min-width:500px) {
+
+    .outer{
+        height: 100%;
+    }
+    
+    .menu{
+        display: flex;
+    }
+
+    .option1, .option2{
+        display: none;
+    }
+
+    .backname-div{
+        position: relative;
+        z-index: 1;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .backname-div p{
+        position: absolute;
+        font-size: 120px;
+        font-family: "Anton", serif;
+        font-weight: 900;
+        font-style: normal;
+        top: 1vh;
+        text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .imgpart{
+        position: relative;
+        width: 100%;
+        z-index: 2;
+    }
+    
+    .imgpart img{
+        display: none;
+        position: absolute;
+        height: 600px;
+        top: -150px;
+        transform: rotate(-40deg);
+        left: 20px;
+        animation: move 10s linear infinite;
+        transition: transform 0.5s ease-in-out;
+    }
+    
+    .info-part{
+        position: absolute;
+        height: 0vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        right: 0px;
+        bottom: 270px;
+        gap: 20px;
+        padding: 20px;
+        left: 10px;
+    }
+    
+    .info-part div:nth-child(1){
+        right: 10px;
+        bottom: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .info-part div:nth-child(1) h3{
+        font-size: 40px;
+        font-family: "Anton", serif;
+        font-weight: 900;
+        font-style:italic;
+    }
+
+    .infopartp{
+        font-size: 20px;
+    }
+    
+    .info-part div:nth-child(2) img{
+        height: 150px;
+        border-radius: 10px;
+    }
+    
+    .btnspart{
+        position: absolute;
+        width: 100%;
+        left: 10px;
+        bottom: 30vh;
+        z-index: 3;
+    }
+    
+    .btnpart, .sizepart{
+        height: 100%;
+        width: 380px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        background-color: rgba(102, 101, 101, 0.301);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .btnpart p, .sizepart p{
+        font-size: 18px;
+        font-weight: bold;
+    }
+    
+    .btnpart div button, .sizepart div button{
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-weight: bold;
+        background-color: rgb(230, 230, 230);
+    }
+    
+    .sizepart div h3{
+        padding: 5px 20px;
+        background-color: black;
+        color: white;
+        width: 170px;
+        margin-top: 5px;
+        border-radius: 5px;
+        font-size: 17px;
+        text-align: center;
+    }
+    
+    .btnpart button.active{
+        background-color: gold;
+    }
+    
+    .sizepart button.active{
+        background-color: gold;
+    }
+}
+
+@media (max-width: 499px) and (min-width:381px) {
+
+    .outer{
+        height: 100%;
+    }
+    
+    .menu{
+        display: flex;
+    }
+
+    .option1, .option2{
+        display: none;
+    }
+
+    .backname-div{
+        position: relative;
+        z-index: 1;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .backname-div p{
+        position: absolute;
+        font-size: 90px;
+        font-family: "Anton", serif;
+        font-weight: 900;
+        font-style: normal;
+        top: 1vh;
+        text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .imgpart{
+        position: relative;
+        width: 100%;
+        z-index: 2;
+    }
+    
+    .imgpart img{
+        display: none;
+        position: absolute;
+        height: 400px;
+        top: -70px;
+        transform: rotate(-40deg);
+        left: 20px;
+        animation: move 10s linear infinite;
+        transition: transform 0.5s ease-in-out;
+    }
+    
+    .info-part{
+        position: absolute;
+        height: 0vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        right: 0px;
+        bottom: 230px;
+        gap: 20px;
+        padding: 20px;
+        left: 10px;
+    }
+    
+    .info-part div:nth-child(1){
+        right: 10px;
+        bottom: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .info-part div:nth-child(1) h3{
+        font-size: 30px;
+        font-family: "Anton", serif;
+        font-weight: 900;
+        font-style:italic;
+    }
+
+    .infopartp{
+        font-size: 18px;
+    }
+    
+    .info-part div:nth-child(2) img{
+        height: 120px;
+        border-radius: 10px;
+    }
+    
+    .btnspart{
+        position: absolute;
+        width: 100%;
+        left: 10px;
+        bottom: 30vh;
+        z-index: 3;
+    }
+    
+    .btnpart, .sizepart{
+        height: 100%;
+        width: 380px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        background-color: rgba(102, 101, 101, 0.301);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .btnpart p, .sizepart p{
+        font-size: 18px;
+        font-weight: bold;
+    }
+    
+    .btnpart div button, .sizepart div button{
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-weight: bold;
+        background-color: rgb(230, 230, 230);
+    }
+    
+    .sizepart div h3{
+        padding: 5px 20px;
+        background-color: black;
+        color: white;
+        width: 170px;
+        margin-top: 5px;
+        border-radius: 5px;
+        font-size: 17px;
+        text-align: center;
+    }
+    
+    .btnpart button.active{
+        background-color: gold;
+    }
+    
+    .sizepart button.active{
+        background-color: gold;
+    }
+}
+
+@media (max-width: 380px) and (min-width:0px) {
+
+    .outer{
+        height: 100%;
+    }
+    
+    .menu{
+        display: flex;
+    }
+
+    .option1, .option2{
+        display: none;
+    }
+
+    .backname-div{
+        position: relative;
+        z-index: 1;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .backname-div p{
+        position: absolute;
+        font-size: 80px;
+        font-family: "Anton", serif;
+        font-weight: 900;
+        font-style: normal;
+        top: 1vh;
+        text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .imgpart{
+        position: relative;
+        width: 100%;
+        z-index: 2;
+    }
+    
+    .imgpart img{
+        display: none;
+        position: absolute;
+        height: 350px;
+        top: -70px;
+        transform: rotate(-40deg);
+        left: 20px;
+        animation: move 10s linear infinite;
+        transition: transform 0.5s ease-in-out;
+    }
+    
+    .info-part{
+        position: absolute;
+        height: 0vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        right: 0px;
+        bottom: 230px;
+        gap: 20px;
+        padding: 20px;
+        left: 10px;
+    }
+    
+    .info-part div:nth-child(1){
+        right: 10px;
+        bottom: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .info-part div:nth-child(1) h3{
+        font-size: 30px;
+        font-family: "Anton", serif;
+        font-weight: 900;
+        font-style:italic;
+    }
+
+    .infopartp{
+        font-size: 18px;
+    }
+    
+    .info-part div:nth-child(2) img{
+        height: 120px;
+        border-radius: 10px;
+    }
+    
+    .btnspart{
+        position: absolute;
+        width: 100%;
+        left: 10px;
+        bottom: 30vh;
+        z-index: 3;
+    }
+    
+    .btnpart, .sizepart{
+        height: 100%;
+        width: 340px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        background-color: rgba(102, 101, 101, 0.301);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .btnpart p, .sizepart p{
+        font-size: 18px;
+        font-weight: bold;
+    }
+    
+    .btnpart div button, .sizepart div button{
+        padding: 2px 7px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-weight: bold;
+        background-color: rgb(230, 230, 230);
+    }
+    
+    .sizepart div h3{
+        padding: 5px 20px;
+        background-color: black;
+        color: white;
+        width: 170px;
+        margin-top: 5px;
+        border-radius: 5px;
+        font-size: 17px;
+        text-align: center;
+    }
+    
+    .btnpart button.active{
+        background-color: gold;
+    }
+    
+    .sizepart button.active{
+        background-color: gold;
+    }
+}
